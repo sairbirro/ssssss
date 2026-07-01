@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>pro sy | نمو رقمي لمشروعك</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@300;400;500;700&family=Markazi+Text:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#060A14;
@@ -20,7 +20,7 @@
     --gold:#D9A94E;
     --gold-bright:#F0CD82;
     --cream:#F3EFE6;
-    --slate:#8794A6;
+    --slate:#A6B1C4;
     --line:rgba(217,169,78,0.10);
     --line-blue:rgba(108,147,255,0.14);
     --ease:cubic-bezier(.22,.61,.36,1);
@@ -45,6 +45,9 @@
   img{max-width:100%;display:block;}
   .wrap{max-width:1180px;margin:0 auto;padding:0 24px;position:relative;z-index:2;}
   ::selection{background:var(--gold);color:var(--ink);}
+
+  /* خط عربي أنيق للـ eyebrow والاقتباسات */
+  .accent-serif{font-family:'Markazi Text',serif;}
 
   /* reveal: pure-CSS entrance animation on load (no JS/scroll dependency = no blank-space bugs) */
   .reveal{animation:riseIn .85s var(--ease) both;}
@@ -92,9 +95,9 @@
 
   .eyebrow{
     display:inline-flex;align-items:center;gap:10px;
-    color:var(--gold-bright);font-weight:600;font-size:12px;letter-spacing:2px;
-    border:1px solid rgba(217,169,78,.25);padding:8px 16px;border-radius:2px;
-    margin-bottom:26px;text-transform:uppercase;
+    color:var(--gold-bright);font-weight:600;font-size:16px;letter-spacing:2.5px;
+    border:1px solid rgba(217,169,78,.25);padding:9px 18px;border-radius:2px;
+    margin-bottom:26px;
   }
   .eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold-bright);box-shadow:0 0 10px var(--gold-bright);}
 
@@ -146,7 +149,7 @@
     isolation:isolate;
   }
   .hero p.lead{
-    color:var(--slate);font-size:17.5px;line-height:2;max-width:560px;margin:0 auto 40px;font-weight:300;
+    color:var(--slate);font-size:17.5px;line-height:2;max-width:560px;margin:0 auto 40px;font-weight:400;
   }
   .hero-actions{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;}
   .btn-primary{
@@ -174,7 +177,7 @@
     box-shadow:0 40px 90px -20px rgba(0,0,0,.6);
     display:flex;flex-direction:column;justify-content:flex-end;
   }
-  .chart-card .label{color:var(--slate);font-size:16px;margin-bottom:10px;letter-spacing:.3px;font-weight:300;}
+  .chart-card .label{color:var(--slate);font-size:16px;margin-bottom:10px;letter-spacing:.3px;font-weight:400;}
   .chart-card .big{font-family:'Cairo';font-weight:600;font-size:46px;color:var(--cream);}
   .chart-card .big small{color:var(--gold-bright);font-size:22px;font-weight:500;}
   svg#growthPath{position:absolute;bottom:0;right:0;width:100%;height:78%;}
@@ -208,8 +211,8 @@
   section{padding:64px 0;scroll-margin-top:90px;}
   .section-head{max-width:620px;margin-bottom:48px;}
   .section-head .eyebrow{margin-bottom:18px;}
-  .section-head h2{font-size:clamp(28px,4vw,38px);font-weight:600;line-height:1.4;letter-spacing:-.3px;}
-  .section-head p{color:var(--slate);margin-top:16px;font-size:16px;line-height:1.9;font-weight:300;}
+  .section-head h2{font-size:clamp(30px,4.4vw,42px);font-weight:600;line-height:1.4;letter-spacing:-.3px;}
+  .section-head p{color:var(--slate);margin-top:16px;font-size:16px;line-height:1.9;font-weight:400;}
 
   .why-bento{
     display:grid;
@@ -236,12 +239,13 @@
   .why-icon{
     width:44px;height:44px;
     display:flex;align-items:center;justify-content:center;
-    border:1px solid rgba(217,169,78,.25);color:var(--gold-bright);margin-bottom:26px;font-size:19px;
+    border:1px solid rgba(217,169,78,.25);color:var(--gold-bright);margin-bottom:26px;
     transition:transform .5s var(--ease),border-color .5s var(--ease);
   }
+  .why-icon svg{width:20px;height:20px;}
   .why-card:hover .why-icon{transform:scale(1.06);border-color:var(--gold);}
   .why-card h3{font-size:18px;font-weight:600;margin-bottom:12px;letter-spacing:.2px;}
-  .why-card p{color:var(--slate);font-size:14.5px;line-height:1.95;font-weight:300;}
+  .why-card p{color:var(--slate);font-size:14.5px;line-height:1.95;font-weight:400;}
 
   /* ===== SHOWCASE / MOCKUPS ===== */
   .showcase{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
@@ -279,10 +283,10 @@
     margin-top:auto;align-self:flex-start;background:var(--gold-bright);color:var(--ink);
     font-size:10.5px;font-weight:700;padding:7px 14px;border-radius:2px;letter-spacing:.3px;
   }
-  .showcase-text h2{font-size:clamp(26px,3.6vw,34px);font-weight:600;margin-bottom:20px;line-height:1.5;letter-spacing:-.3px;}
-  .showcase-text p{color:var(--slate);font-size:16px;line-height:2;margin-bottom:30px;font-weight:300;}
+  .showcase-text h2{font-size:clamp(29px,4vw,38px);font-weight:600;margin-bottom:20px;line-height:1.5;letter-spacing:-.3px;}
+  .showcase-text p{color:var(--slate);font-size:16px;line-height:2;margin-bottom:30px;font-weight:400;}
   .check-list{display:flex;flex-direction:column;gap:16px;}
-  .check-list li{display:flex;align-items:center;gap:14px;font-size:15px;font-weight:300;}
+  .check-list li{display:flex;align-items:center;gap:14px;font-size:15px;font-weight:400;color:var(--cream);}
   .check-list .tick{
     width:22px;height:22px;border-radius:1px;border:1px solid rgba(217,169,78,.3);
     color:var(--gold-bright);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;
@@ -299,7 +303,7 @@
   .stat-item{padding:50px 20px;text-align:center;border-left:1px solid var(--line);}
   .stat-item:last-child{border-left:none;}
   .stat-num{font-family:'Cairo';font-weight:600;font-size:36px;color:var(--gold-bright);}
-  .stat-label{color:var(--slate);font-size:13px;margin-top:10px;font-weight:300;letter-spacing:.2px;}
+  .stat-label{color:var(--slate);font-size:13px;margin-top:10px;font-weight:400;letter-spacing:.2px;}
 
   /* ===== CTA ===== */
   .cta-band{
@@ -314,14 +318,14 @@
     width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);
   }
   .cta-band h2{font-size:clamp(26px,4vw,36px);font-weight:600;margin-bottom:16px;letter-spacing:-.3px;}
-  .cta-band p{color:var(--slate);font-size:16px;margin-bottom:36px;font-weight:300;}
+  .cta-band p{color:var(--slate);font-size:16px;margin-bottom:36px;font-weight:400;}
 
   /* ===== FOOTER / SOCIAL ===== */
   footer{border-top:1px solid var(--line);padding-top:80px;background:var(--ink2);}
   .footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;padding-bottom:60px;}
   .footer-brand .logo{margin-bottom:16px;}
-  .footer-brand p{color:var(--slate);font-size:14px;max-width:300px;line-height:1.9;font-weight:300;}
-  .social-block h4{font-size:12.5px;color:var(--slate);margin-bottom:20px;font-weight:400;letter-spacing:1px;text-transform:uppercase;}
+  .footer-brand p{color:var(--slate);font-size:14px;max-width:300px;line-height:1.9;font-weight:400;}
+  .social-block h4{font-size:12.5px;color:var(--slate);margin-bottom:20px;font-weight:500;letter-spacing:1px;}
   .social-row{display:flex;gap:14px;}
   .social-row a{
     width:44px;height:44px;border-radius:2px;
@@ -331,12 +335,12 @@
   .social-row a:hover{transform:translateY(-6px);box-shadow:0 16px 30px rgba(0,0,0,.4);border-color:transparent;}
   .s-fb:hover{background:#1877F2;}
   .s-ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
-  .s-wa:hover{background:#25D366;}
+  .s-wa:hover{background:linear-gradient(135deg,var(--gold-bright),var(--gold));}
   .s-tg:hover{background:#229ED9;}
   .s-tw:hover{background:#000;}
   .footer-bottom{
     border-top:1px solid var(--line);padding:26px 0;
-    display:flex;justify-content:space-between;color:var(--slate);font-size:12.5px;flex-wrap:wrap;gap:10px;font-weight:300;
+    display:flex;justify-content:space-between;color:var(--slate);font-size:12.5px;flex-wrap:wrap;gap:10px;font-weight:400;
   }
 
   @media (max-width:900px){
@@ -352,6 +356,9 @@
     .stat-item:nth-child(2){border-left:none;}
     .cursor-ring{display:none;}
     .wa-float{left:20px;bottom:20px;}
+    .about-wrap{grid-template-columns:1fr !important;}
+    .acct-wrap{grid-template-columns:1fr !important;gap:34px !important;}
+    .acct-panel{padding:28px !important;}
   }
 
   /* ===== LOADER ===== */
@@ -400,69 +407,48 @@
   }
   @keyframes lineGrow{to{width:120px;}}
 
-  /* ===== ACCOUNTING SECTION ===== */
-  .acct-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center;}
-  .acct-panel{
-    background:var(--ink2);border:1px solid var(--line);border-radius:6px;
-    padding:40px;position:relative;transition:transform .5s var(--ease),box-shadow .5s var(--ease);
-  }
-  .acct-panel:hover{transform:translateY(-4px);box-shadow:0 30px 60px -25px rgba(0,0,0,.55);}
-  .acct-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-size:14px;}
-  .acct-row:last-child{border-bottom:none;}
-  .acct-row span:first-child{color:var(--slate);font-weight:300;}
-  .acct-row span:last-child{font-family:'Cairo';font-weight:600;color:var(--cream);}
-  .acct-row .up{color:var(--teal);font-size:12px;margin-right:6px;}
-  .acct-total{
-    margin-top:18px;padding-top:20px;border-top:1px solid rgba(217,169,78,.25);
-    display:flex;justify-content:space-between;align-items:center;
-  }
-  .acct-total span:first-child{color:var(--gold-bright);font-size:13px;letter-spacing:.3px;}
-  .acct-total span:last-child{font-family:'Cairo';font-weight:700;font-size:24px;color:var(--gold-bright);}
-  .acct-feature-grid{display:flex;flex-direction:column;gap:22px;margin-top:30px;}
-  .acct-feature{display:flex;gap:16px;align-items:flex-start;}
-  .acct-feature .num{
-    font-family:'Cairo';color:var(--gold-bright);font-weight:600;font-size:13px;
-    border:1px solid rgba(217,169,78,.3);width:30px;height:30px;border-radius:2px;
-    display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  }
-  .acct-feature h4{font-size:15.5px;font-weight:600;margin-bottom:5px;}
-  .acct-feature p{color:var(--slate);font-size:14px;line-height:1.85;font-weight:300;}
+  /* منع تمدد أعمدة الـ grid خارج حدود الصفحة بسبب نصوص/أرقام طويلة */
+  .acct-wrap, .about-wrap, .showcase{min-width:0;}
+  .acct-wrap > *, .about-wrap > *, .showcase > *{min-width:0;}
+  .acct-panel{max-width:100%;}
+  .acct-row span{word-break:break-word;}
 
-  /* ===== TESTIMONIALS ===== */
-  .testi-wrap{max-width:760px;margin:0 auto;text-align:center;}
-  .testi-quote{
-    font-family:'Cairo';font-weight:500;font-size:clamp(20px,2.6vw,27px);
-    line-height:1.75;color:var(--cream);margin-bottom:34px;
+  /* ===== ABOUT (من نحن) ===== */
+  .about-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:center;}
+  .about-quote{
+    position:relative;
+    background:linear-gradient(150deg, var(--ink2), var(--navy) 140%);
+    border:1px solid var(--line-blue);
+    padding:46px 40px;
+    clip-path:polygon(0 0, 100% 0, 100% calc(100% - 34px), calc(100% - 34px) 100%, 0 100%);
   }
-  .testi-mark{font-size:44px;color:var(--gold);opacity:.5;font-family:'Cairo';line-height:1;margin-bottom:10px;}
-  .testi-person{display:flex;align-items:center;justify-content:center;gap:14px;}
-  .testi-avatar{
-    width:44px;height:44px;border-radius:50%;
-    background:linear-gradient(135deg,var(--gold-bright),var(--gold));
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Cairo';font-weight:700;color:var(--ink);font-size:15px;
+  .about-quote .mark{font-family:'Markazi Text',serif;font-size:56px;color:var(--gold);opacity:.55;line-height:1;margin-bottom:6px;}
+  .about-quote p{
+    font-family:'Markazi Text',serif;font-weight:600;font-size:26px;line-height:1.65;color:var(--cream);
   }
-  .testi-name{font-size:14.5px;font-weight:600;}
-  .testi-role{font-size:12.5px;color:var(--slate);font-weight:300;}
+  .about-quote .sig{margin-top:26px;color:var(--gold-bright);font-size:13px;letter-spacing:1px;font-weight:600;}
+  .about-values{display:flex;flex-direction:column;gap:22px;margin-top:30px;}
+  .about-value{display:flex;gap:16px;align-items:flex-start;}
+  .about-value .why-icon{margin-bottom:0;flex-shrink:0;}
+  .about-value h4{font-size:15.5px;font-weight:600;margin-bottom:5px;}
+  .about-value p{color:var(--slate);font-size:14px;line-height:1.85;font-weight:400;}
 
   /* ===== WHATSAPP FLOATING BUTTON ===== */
   .wa-float{
     position:fixed;bottom:28px;right:28px;z-index:80;
     width:58px;height:58px;border-radius:50%;
-    background:#25D366;display:flex;align-items:center;justify-content:center;
-    box-shadow:0 12px 30px rgba(37,211,102,.35);
+    background:linear-gradient(135deg,var(--gold-bright),var(--gold));
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 30px rgba(217,169,78,.3);
+    border:1px solid rgba(255,255,255,.15);
     transition:transform .4s var(--ease), box-shadow .4s var(--ease);
-    animation:waPulse 2.6s ease-in-out infinite;
+    animation:waPulse 2.8s ease-in-out infinite;
   }
-  .wa-float:hover{transform:scale(1.08);box-shadow:0 16px 40px rgba(37,211,102,.5);}
-  .wa-float svg{width:28px;height:28px;}
+  .wa-float:hover{transform:scale(1.08);box-shadow:0 16px 40px rgba(217,169,78,.45);}
+  .wa-float svg{width:26px;height:26px;}
   @keyframes waPulse{
-    0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.4),0 12px 30px rgba(37,211,102,.35);}
-    50%{box-shadow:0 0 0 12px rgba(37,211,102,0),0 12px 30px rgba(37,211,102,.35);}
-  }
-
-  @media (max-width:900px){
-    .acct-wrap{grid-template-columns:1fr;}
+    0%,100%{box-shadow:0 0 0 0 rgba(217,169,78,.35),0 12px 30px rgba(217,169,78,.3);}
+    50%{box-shadow:0 0 0 12px rgba(217,169,78,0),0 12px 30px rgba(217,169,78,.3);}
   }
 
   @media (prefers-reduced-motion:reduce){
@@ -481,7 +467,7 @@
 <div class="cursor-ring" id="cursorRing"></div>
 
 <a href="https://wa.me/message/TWETUXQYKLV5E1" target="_blank" rel="noopener" class="wa-float" aria-label="تواصل عبر واتساب">
-  <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4C7.6 4 4 7.6 4 12.05c0 1.42.37 2.8 1.08 4.02L4 20l4.06-1.06a8.03 8.03 0 0 0 3.99 1.02h.01c4.44 0 8.05-3.6 8.05-8.05a8 8 0 0 0-2.5-5.6zm-5.55 12.4h-.01a6.7 6.7 0 0 1-3.41-.93l-.24-.15-2.53.66.68-2.47-.16-.25a6.68 6.68 0 0 1-1.02-3.53c0-3.7 3.01-6.71 6.72-6.71a6.68 6.68 0 0 1 4.75 1.97 6.68 6.68 0 0 1 1.96 4.74c0 3.71-3.02 6.72-6.74 6.72zm3.68-5.03c-.2-.1-1.18-.58-1.36-.65-.18-.07-.32-.1-.45.1-.13.2-.51.65-.63.78-.11.13-.23.15-.43.05-.2-.1-.85-.31-1.62-1-.6-.53-1-1.19-1.12-1.39-.11-.2-.01-.31.09-.4.09-.1.2-.24.3-.36.1-.12.13-.2.2-.34.06-.13.03-.25-.02-.36-.05-.1-.45-1.08-.61-1.48-.16-.39-.33-.33-.45-.34-.12-.01-.25-.01-.38-.01-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66 0 .98.72 1.92.82 2.05.1.13 1.4 2.14 3.4 3 .48.2.85.33 1.14.42.48.15.91.13 1.26.08.38-.06 1.18-.48 1.35-.94.17-.46.17-.86.12-.94-.05-.09-.18-.14-.38-.24z"/></svg>
+  <svg viewBox="0 0 24 24" fill="#080D14"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4C7.6 4 4 7.6 4 12.05c0 1.42.37 2.8 1.08 4.02L4 20l4.06-1.06a8.03 8.03 0 0 0 3.99 1.02h.01c4.44 0 8.05-3.6 8.05-8.05a8 8 0 0 0-2.5-5.6zm-5.55 12.4h-.01a6.7 6.7 0 0 1-3.41-.93l-.24-.15-2.53.66.68-2.47-.16-.25a6.68 6.68 0 0 1-1.02-3.53c0-3.7 3.01-6.71 6.72-6.71a6.68 6.68 0 0 1 4.75 1.97 6.68 6.68 0 0 1 1.96 4.74c0 3.71-3.02 6.72-6.74 6.72zm3.68-5.03c-.2-.1-1.18-.58-1.36-.65-.18-.07-.32-.1-.45.1-.13.2-.51.65-.63.78-.11.13-.23.15-.43.05-.2-.1-.85-.31-1.62-1-.6-.53-1-1.19-1.12-1.39-.11-.2-.01-.31.09-.4.09-.1.2-.24.3-.36.1-.12.13-.2.2-.34.06-.13.03-.25-.02-.36-.05-.1-.45-1.08-.61-1.48-.16-.39-.33-.33-.45-.34-.12-.01-.25-.01-.38-.01-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66 0 .98.72 1.92.82 2.05.1.13 1.4 2.14 3.4 3 .48.2.85.33 1.14.42.48.15.91.13 1.26.08.38-.06 1.18-.48 1.35-.94.17-.46.17-.86.12-.94-.05-.09-.18-.14-.38-.24z"/></svg>
 </a>
 
 <header>
@@ -496,6 +482,7 @@
       </div>
       <div class="nav-links">
         <a href="#hero">الرئيسية</a>
+        <a href="#about">من نحن</a>
         <a href="#why">لماذا الرقمنة</a>
         <a href="#services">خدماتنا</a>
         <a href="#accounting">حلول المحاسبة</a>
@@ -516,7 +503,7 @@
   </div>
 
   <div class="wrap hero-content">
-    <div class="eyebrow">حضورك الرقمي يبدأ من هنا</div>
+    <div class="eyebrow accent-serif">حضورك الرقمي يبدأ من هنا</div>
     <h1>نبني لمشروعك <span>تطبيقات ومواقع</span> تجلب لك عملاء حقيقيين</h1>
     <p class="lead">
       كل يوم يبقى فيه نشاطك التجاري بلا موقع أو تطبيق احترافي، هو يوم تخسر فيه عملاء لصالح منافس أسرع منك في الوصول إليهم. نحوّل فكرتك إلى منصة رقمية تعمل لصالحك على مدار الساعة.
@@ -546,8 +533,14 @@
         </svg>
         <div class="dot" style="left:34%;top:52%;"></div>
         <div class="dot" style="left:66%;top:24%;animation-delay:.6s;"></div>
-        <div class="float-tag" style="top:22px;left:22px;">📈 مبيعات أعلى</div>
-        <div class="float-tag" style="top:22px;left:200px;animation-delay:1s;">👥 عملاء جدد يوميًا</div>
+        <div class="float-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F0CD82" stroke-width="1.6"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
+          مبيعات أعلى
+        </div>
+        <div class="float-tag" style="right:auto;left:200px;animation-delay:1s;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F0CD82" stroke-width="1.6"><circle cx="9" cy="7" r="3"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><circle cx="17" cy="8" r="2.3"/></svg>
+          عملاء جدد يوميًا
+        </div>
         <div class="label">نمو متوقع خلال 6 أشهر من الإطلاق</div>
         <div class="big">+ 187% <small>عملاء جدد</small></div>
       </div>
@@ -555,27 +548,73 @@
   </div>
 </section>
 
+<section id="about">
+  <div class="wrap about-wrap">
+    <div class="about-quote ornate reveal">
+      <div class="mark">"</div>
+      <p>نؤمن أن كل مشروع سوري يستحق حضورًا رقميًا بمستوى طموحه، لا يقل احترافية عن أكبر العلامات التجارية.</p>
+      <div class="sig">فريق pro sy</div>
+    </div>
+
+    <div class="showcase-text reveal">
+      <div class="eyebrow">من نحن</div>
+      <h2>شريكك التقني الموثوق لبناء حضور رقمي يليق بمشروعك</h2>
+      <p>
+        pro sy فريق سوري متخصص في تصميم وتطوير المواقع والتطبيقات وأنظمة المحاسبة الرقمية لأصحاب الأعمال والمحلات والشركات الصغيرة والمتوسطة. نجمع بين الخبرة التقنية والفهم العميق لاحتياجات السوق المحلي، لنقدّم لك حلولًا عملية تُحدث فرقًا حقيقيًا في نمو مشروعك، بدءًا من فكرتك الأولى وحتى الإطلاق والمتابعة المستمرة بعده.
+      </p>
+      <div class="about-values">
+        <div class="about-value">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#F0CD82" stroke-width="1.6"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6.3-5.5-3-5.5 3 1-6.3L3 8.9 9 8z"/></svg>
+          </div>
+          <div><h4>جودة احترافية</h4><p>كل مشروع نصممه يخضع لمعايير دقيقة في الأداء والتصميم قبل تسليمه لك.</p></div>
+        </div>
+        <div class="about-value">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#F0CD82" stroke-width="1.6"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg>
+          </div>
+          <div><h4>موثوقية والتزام</h4><p>نلتزم بالمواعيد والتفاصيل المتفق عليها معك من أول استشارة حتى التسليم.</p></div>
+        </div>
+        <div class="about-value">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#F0CD82" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <div><h4>دعم مستمر بعد الإطلاق</h4><p>علاقتنا لا تنتهي بتسليم المشروع، بل نستمر بدعمك وتطوير حضورك الرقمي.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="gold-divider reveal"><span class="ln"></span> ✦ <span class="ln"></span></div></div>
+
 <section id="why">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow">لماذا تحتاج عملك للرقمنة</div>
+      <div class="eyebrow accent-serif">لماذا تحتاج عملك للرقمنة</div>
       <h2>التواجد الرقمي لم يعد رفاهية، بل خط حياة لنمو مشروعك</h2>
       <p>عملاؤك يبحثون عنك الآن على الإنترنت قبل أن يطرقوا بابك. إن لم يجدوك، سيجدون غيرك.</p>
     </div>
 
     <div class="why-bento">
       <div class="why-card big reveal">
-        <div class="why-icon">👥</div>
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F0CD82" stroke-width="1.6"><circle cx="9" cy="7" r="3"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><circle cx="17" cy="8" r="2.3"/><path d="M22 21v-1a5 5 0 0 0-3-4.6"/></svg>
+        </div>
         <h3>زيادة عدد العملاء</h3>
         <p>موقع أو تطبيق احترافي يفتح لك أبوابًا جديدة للوصول إلى عملاء لم يكونوا يعرفون بوجود مشروعك من قبل، داخل سوريا وخارجها. حضورك الرقمي يعمل نيابة عنك على مدار الساعة، حتى وأنت نائم.</p>
       </div>
       <div class="why-card reveal" style="transition-delay:.1s">
-        <div class="why-icon">💰</div>
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F0CD82" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2.5 3-2.5s3 .9 3 2.2c0 3-6 1.6-6 4.6 0 1.3 1.3 2.2 3 2.2s3-1.1 3-2.5"/></svg>
+        </div>
         <h3>نمو في الأرباح</h3>
         <p>كل عميل إضافي يصله مشروعك رقميًا يعني طلبات أكثر، ومبيعات أعلى، ودخلًا أكثر استقرارًا لنشاطك التجاري.</p>
       </div>
       <div class="why-card reveal" style="transition-delay:.2s">
-        <div class="why-icon">🚀</div>
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F0CD82" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 11-13h-7l1-7z"/></svg>
+        </div>
         <h3>تقدّم على المنافسين</h3>
         <p>بينما لا يزال منافسوك يعتمدون على الطرق التقليدية فقط، يمنحك حضورك الرقمي ميزة واضحة وثقة أكبر لدى السوق.</p>
       </div>
@@ -624,15 +663,15 @@
 <div class="wrap"><div class="gold-divider reveal"><span class="ln"></span> ✦ <span class="ln"></span></div></div>
 
 <section id="accounting">
-  <div class="wrap acct-wrap">
-    <div class="acct-panel ornate reveal">
-      <div class="acct-row"><span>المبيعات اليومية</span><span>2,450,000 <span style="color:var(--slate);font-size:11px;">ل.س</span></span></div>
-      <div class="acct-row"><span>المصاريف التشغيلية</span><span>640,000 <span style="color:var(--slate);font-size:11px;">ل.س</span></span></div>
-      <div class="acct-row"><span>فواتير معلّقة</span><span>12 <span class="up">▲</span></span></div>
-      <div class="acct-row"><span>المخزون المتوفر</span><span>318 صنف</span></div>
-      <div class="acct-total">
-        <span>صافي الربح هذا الشهر</span>
-        <span>+ 1,810,000</span>
+  <div class="wrap acct-wrap" style="display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center;">
+    <div class="acct-panel ornate reveal" style="background:var(--ink2);border:1px solid var(--line);border-radius:6px;padding:40px;position:relative;">
+      <div class="acct-row" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-size:14px;"><span style="color:var(--slate);font-weight:400;">المبيعات اليومية</span><span style="font-family:'Cairo';font-weight:600;color:var(--cream);">2,450,000 <span style="color:var(--slate);font-size:11px;">ل.س</span></span></div>
+      <div class="acct-row" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-size:14px;"><span style="color:var(--slate);font-weight:400;">المصاريف التشغيلية</span><span style="font-family:'Cairo';font-weight:600;color:var(--cream);">640,000 <span style="color:var(--slate);font-size:11px;">ل.س</span></span></div>
+      <div class="acct-row" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-size:14px;"><span style="color:var(--slate);font-weight:400;">فواتير معلّقة</span><span style="font-family:'Cairo';font-weight:600;color:var(--cream);">12 <span class="up" style="color:var(--teal);font-size:12px;margin-right:6px;">▲</span></span></div>
+      <div class="acct-row" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;font-size:14px;"><span style="color:var(--slate);font-weight:400;">المخزون المتوفر</span><span style="font-family:'Cairo';font-weight:600;color:var(--cream);">318 صنف</span></div>
+      <div class="acct-total" style="margin-top:18px;padding-top:20px;border-top:1px solid rgba(217,169,78,.25);display:flex;justify-content:space-between;align-items:center;">
+        <span style="color:var(--gold-bright);font-size:13px;letter-spacing:.3px;">صافي الربح هذا الشهر</span>
+        <span style="font-family:'Cairo';font-weight:700;font-size:24px;color:var(--gold-bright);">+ 1,810,000</span>
       </div>
     </div>
 
@@ -642,22 +681,22 @@
       <p>
         نبني لك نظام محاسبة رقمي بسيط وسهل الاستخدام، يناسب طبيعة عملك سواء كنت تدير محلًا تجاريًا أو شركة متوسطة، ليوفر عليك ساعات من الحسابات اليدوية ويمنحك صورة واضحة عن أرباحك ومصاريفك لحظة بلحظة.
       </p>
-      <div class="acct-feature-grid">
+      <div class="acct-feature-grid" style="display:flex;flex-direction:column;gap:22px;margin-top:30px;">
         <div class="acct-feature">
-          <div class="num">01</div>
-          <div><h4>تسجيل المبيعات والمشتريات</h4><p>تسجيل كل عملية بيع أو شراء بضغطة واحدة، مع ربط تلقائي بالمخزون والفواتير.</p></div>
+          <div class="num" style="font-family:'Cairo';color:var(--gold-bright);font-weight:600;font-size:13px;border:1px solid rgba(217,169,78,.3);width:30px;height:30px;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">01</div>
+          <div><h4 style="font-size:15.5px;font-weight:600;margin-bottom:5px;">تسجيل المبيعات والمشتريات</h4><p style="color:var(--slate);font-size:14px;line-height:1.85;font-weight:400;">تسجيل كل عملية بيع أو شراء بضغطة واحدة، مع ربط تلقائي بالمخزون والفواتير.</p></div>
         </div>
         <div class="acct-feature">
-          <div class="num">02</div>
-          <div><h4>تقارير أرباح وخسائر فورية</h4><p>تعرف صافي ربحك اليومي والشهري دون الحاجة لمحاسب يجلس معك كل مرة.</p></div>
+          <div class="num" style="font-family:'Cairo';color:var(--gold-bright);font-weight:600;font-size:13px;border:1px solid rgba(217,169,78,.3);width:30px;height:30px;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">02</div>
+          <div><h4 style="font-size:15.5px;font-weight:600;margin-bottom:5px;">تقارير أرباح وخسائر فورية</h4><p style="color:var(--slate);font-size:14px;line-height:1.85;font-weight:400;">تعرف صافي ربحك اليومي والشهري دون الحاجة لمحاسب يجلس معك كل مرة.</p></div>
         </div>
         <div class="acct-feature">
-          <div class="num">03</div>
-          <div><h4>إدارة المخزون والفواتير</h4><p>تنبيهات تلقائية عند نقص المخزون، وإصدار فواتير احترافية لعملائك مباشرة من التطبيق.</p></div>
+          <div class="num" style="font-family:'Cairo';color:var(--gold-bright);font-weight:600;font-size:13px;border:1px solid rgba(217,169,78,.3);width:30px;height:30px;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">03</div>
+          <div><h4 style="font-size:15.5px;font-weight:600;margin-bottom:5px;">إدارة المخزون والفواتير</h4><p style="color:var(--slate);font-size:14px;line-height:1.85;font-weight:400;">تنبيهات تلقائية عند نقص المخزون، وإصدار فواتير احترافية لعملائك مباشرة من التطبيق.</p></div>
         </div>
         <div class="acct-feature">
-          <div class="num">04</div>
-          <div><h4>عمل متعدد الفروع والمستخدمين</h4><p>مناسب لأصحاب أكثر من فرع أو موظف، مع صلاحيات دخول مختلفة لكل مستخدم.</p></div>
+          <div class="num" style="font-family:'Cairo';color:var(--gold-bright);font-weight:600;font-size:13px;border:1px solid rgba(217,169,78,.3);width:30px;height:30px;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">04</div>
+          <div><h4 style="font-size:15.5px;font-weight:600;margin-bottom:5px;">عمل متعدد الفروع والمستخدمين</h4><p style="color:var(--slate);font-size:14px;line-height:1.85;font-weight:400;">مناسب لأصحاب أكثر من فرع أو موظف، مع صلاحيات دخول مختلفة لكل مستخدم.</p></div>
         </div>
       </div>
     </div>
@@ -665,20 +704,6 @@
 </section>
 
 <div class="wrap"><div class="gold-divider reveal"><span class="ln"></span> ✦ <span class="ln"></span></div></div>
-
-<section>
-  <div class="wrap testi-wrap reveal">
-    <div class="testi-mark">"</div>
-    <p class="testi-quote">منذ أن طوّرت pro sy تطبيق المحاسبة الخاص بمحلي، توقفت عن استخدام الدفاتر الورقية نهائيًا. أصبحت أعرف أرباحي اليومية بدقة، وزاد عدد زبائني بعد إطلاق الموقع بشكل لم أتوقعه.</p>
-    <div class="testi-person">
-      <div class="testi-avatar">ع.ح</div>
-      <div style="text-align:right">
-        <div class="testi-name">عمر الحسن</div>
-        <div class="testi-role">صاحب محل، دمشق</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section>
   <div class="wrap">
