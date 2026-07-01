@@ -140,6 +140,10 @@
     background:linear-gradient(90deg,var(--gold-bright),var(--gold) 55%,var(--blue-bright));
     -webkit-background-clip:text;background-clip:text;color:transparent;
     font-weight:700;
+    display:inline-block;
+    transform:translateZ(0);-webkit-transform:translateZ(0);
+    backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    isolation:isolate;
   }
   .hero p.lead{
     color:var(--slate);font-size:17.5px;line-height:2;max-width:560px;margin:0 auto 40px;font-weight:300;
@@ -802,14 +806,6 @@
     }
   }
 
-  // scroll parallax on hero background glow
-  const hero = document.querySelector('.hero');
-  if(hero && !reduceMotion){
-    window.addEventListener('scroll', ()=>{
-      const y = window.scrollY;
-      hero.style.backgroundPosition = `center ${y*0.15}px, center ${y*0.1}px`;
-    });
-  }
 </script>
 
 </body>
