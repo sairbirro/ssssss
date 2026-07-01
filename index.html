@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syria Tech | نمو رقمي لمشروعك</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#080D14;
+    --ink2:#0D1420;
+    --ink3:#121C2C;
+    --teal:#0D9C82;
+    --teal-soft:#0A7D68;
+    --gold:#D9A94E;
+    --gold-bright:#F0CD82;
+    --cream:#F3EFE6;
+    --slate:#8794A6;
+    --line:rgba(217,169,78,0.10);
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Tajawal',sans-serif;
+    overflow-x:hidden;
+    position:relative;
+  }
+  body::before{
+    content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  h1,h2,h3,.display{font-family:'Cairo',sans-serif;font-weight:600;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;position:relative;z-index:2;}
+  ::selection{background:var(--gold);color:var(--ink);}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ===== NAV ===== */
+  header{
+    position:fixed;top:0;right:0;left:0;z-index:50;
+    padding:22px 0;
+    backdrop-filter:blur(14px);
+    background:rgba(8,13,20,0.6);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:12px;font-weight:600;font-size:20px;letter-spacing:1.5px;}
+  .logo-mark{
+    width:34px;height:34px;border-radius:9px;
+    background:linear-gradient(135deg,var(--gold-bright),var(--gold) 55%,#a97f2f);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Cairo';font-weight:700;color:var(--ink);font-size:15px;
+    box-shadow:0 4px 16px rgba(217,169,78,.25);
+  }
+  .nav-links{display:flex;gap:40px;font-size:14.5px;color:var(--slate);letter-spacing:.3px;}
+  .nav-links a{transition:color .4s var(--ease);position:relative;}
+  .nav-links a:hover{color:var(--cream);}
+  .nav-cta{
+    background:transparent;color:var(--gold-bright);font-weight:600;border:1px solid rgba(217,169,78,.4);
+    padding:11px 26px;border-radius:2px;font-size:13.5px;letter-spacing:.5px;
+    transition:all .45s var(--ease);
+  }
+  .nav-cta:hover{background:rgba(217,169,78,.08);border-color:var(--gold);box-shadow:0 8px 26px rgba(217,169,78,.12);}
+  .burger{display:none;}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;align-items:center;
+    padding-top:140px;padding-bottom:100px;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(13,156,130,.12), transparent 45%),
+      radial-gradient(circle at 10% 80%, rgba(217,169,78,.08), transparent 40%);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    color:var(--gold-bright);font-weight:600;font-size:12px;letter-spacing:2px;
+    border:1px solid rgba(217,169,78,.25);padding:8px 16px;border-radius:2px;
+    margin-bottom:26px;text-transform:uppercase;
+  }
+  .eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold-bright);box-shadow:0 0 10px var(--gold-bright);}
+  .hero h1{
+    font-size:clamp(40px,5.6vw,64px);
+    font-weight:600;line-height:1.22;margin-bottom:26px;letter-spacing:-.5px;
+  }
+  .hero h1 span{
+    background:linear-gradient(90deg,var(--gold-bright),var(--gold) 60%,#b98f42);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    font-weight:700;
+  }
+  .hero p.lead{
+    color:var(--slate);font-size:17.5px;line-height:2;max-width:520px;margin-bottom:40px;font-weight:300;
+  }
+  .hero-actions{display:flex;gap:18px;flex-wrap:wrap;}
+  .btn-primary{
+    background:linear-gradient(90deg,var(--gold-bright),var(--gold));
+    color:var(--ink);font-weight:700;padding:16px 34px;border-radius:2px;
+    font-size:14px;letter-spacing:.4px;transition:all .5s var(--ease);
+    box-shadow:0 10px 30px rgba(217,169,78,.12);
+  }
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(217,169,78,.22);}
+  .btn-ghost{
+    border:1px solid rgba(255,255,255,.14);color:var(--cream);font-weight:500;
+    padding:16px 34px;border-radius:2px;font-size:14px;letter-spacing:.4px;transition:all .5s var(--ease);
+  }
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-bright);}
+
+  /* signature: animated growth line */
+  .hero-visual{position:relative;height:420px;}
+  .chart-card{
+    position:absolute;inset:0;
+    background:var(--ink2);border:1px solid var(--line);border-radius:6px;
+    padding:32px;overflow:hidden;
+    box-shadow:0 40px 80px -20px rgba(0,0,0,.6);
+  }
+  .chart-card .label{color:var(--slate);font-size:12.5px;margin-bottom:6px;letter-spacing:.3px;font-weight:300;}
+  .chart-card .big{font-family:'Cairo';font-weight:600;font-size:30px;color:var(--cream);}
+  .chart-card .big small{color:var(--gold-bright);font-size:15px;font-weight:500;}
+  svg#growthPath{position:absolute;bottom:0;right:0;width:100%;height:70%;}
+  .path-line{
+    fill:none;stroke:url(#grad);stroke-width:1.5;
+    stroke-dasharray:900;stroke-dashoffset:900;
+    animation:draw 3s var(--ease) forwards .5s;
+  }
+  .path-fill{opacity:0;animation:fadeIn 2s ease forwards 2s;}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  @keyframes fadeIn{to{opacity:1;}}
+  .dot{
+    position:absolute;width:7px;height:7px;border-radius:50%;
+    background:var(--gold-bright);box-shadow:0 0 0 0 rgba(240,205,130,.5);
+    animation:pulse 3.2s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(240,205,130,.4);}
+    70%{box-shadow:0 0 0 12px rgba(240,205,130,0);}
+    100%{box-shadow:0 0 0 0 rgba(240,205,130,0);}
+  }
+  .float-tag{
+    position:absolute;background:rgba(18,28,44,.85);border:1px solid var(--line);
+    padding:10px 16px;border-radius:2px;font-size:12.5px;font-weight:500;letter-spacing:.2px;
+    display:flex;align-items:center;gap:8px;animation:floaty 6s ease-in-out infinite;
+    backdrop-filter:blur(6px);
+  }
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+
+  /* ===== WHY SECTION ===== */
+  section{padding:140px 0;}
+  .section-head{max-width:620px;margin-bottom:70px;}
+  .section-head .eyebrow{margin-bottom:18px;}
+  .section-head h2{font-size:clamp(28px,4vw,38px);font-weight:600;line-height:1.4;letter-spacing:-.3px;}
+  .section-head p{color:var(--slate);margin-top:16px;font-size:16px;line-height:1.9;font-weight:300;}
+
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .why-card{
+    background:var(--ink2);
+    padding:44px 34px;transition:background .5s var(--ease);
+  }
+  .why-card:hover{background:var(--ink3);}
+  .why-icon{
+    width:44px;height:44px;border-radius:2px;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid rgba(217,169,78,.25);color:var(--gold-bright);margin-bottom:26px;font-size:19px;
+    transition:transform .5s var(--ease),border-color .5s var(--ease);
+  }
+  .why-card:hover .why-icon{transform:scale(1.06);border-color:var(--gold);}
+  .why-card h3{font-size:18px;font-weight:600;margin-bottom:12px;letter-spacing:.2px;}
+  .why-card p{color:var(--slate);font-size:14.5px;line-height:1.95;font-weight:300;}
+
+  /* ===== SHOWCASE / MOCKUPS ===== */
+  .showcase{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+  .mock-stage{position:relative;height:440px;}
+  .laptop{
+    position:absolute;width:78%;right:0;top:20px;
+    background:var(--ink3);border:1px solid var(--line);border-radius:6px 6px 2px 2px;
+    box-shadow:0 40px 90px -20px rgba(0,0,0,.6);
+    animation:floaty 7s ease-in-out infinite;
+  }
+  .laptop .bar{display:flex;gap:6px;padding:12px 16px;border-bottom:1px solid var(--line);}
+  .laptop .bar span{width:8px;height:8px;border-radius:50%;background:var(--gold);opacity:.35;}
+  .laptop .screen{
+    height:230px;background:
+      linear-gradient(160deg, rgba(13,156,130,.14), rgba(217,169,78,.06)),
+      repeating-linear-gradient(45deg, transparent, transparent 26px, rgba(255,255,255,.02) 27px);
+    padding:20px;display:flex;flex-direction:column;gap:12px;
+  }
+  .skel{height:9px;border-radius:1px;background:rgba(255,255,255,.08);}
+  .skel.w60{width:60%;} .skel.w40{width:40%;} .skel.w90{width:90%;}
+  .phone{
+    position:absolute;width:160px;left:0;bottom:-10px;
+    background:var(--ink3);border:1px solid var(--line);border-radius:22px;
+    box-shadow:0 40px 90px -20px rgba(0,0,0,.65);
+    animation:floaty 6s ease-in-out infinite 1.2s;
+  }
+  .phone .notch{width:46px;height:4px;background:var(--gold);opacity:.3;border-radius:4px;margin:12px auto;}
+  .phone .pscreen{
+    margin:0 10px 14px;height:300px;border-radius:16px;
+    background:linear-gradient(200deg, rgba(217,169,78,.10), rgba(13,156,130,.08));
+    padding:16px;display:flex;flex-direction:column;gap:10px;
+  }
+  .pscreen .skel{background:rgba(255,255,255,.09);}
+  .pill{
+    margin-top:auto;align-self:flex-start;background:var(--gold-bright);color:var(--ink);
+    font-size:10.5px;font-weight:700;padding:7px 14px;border-radius:2px;letter-spacing:.3px;
+  }
+  .showcase-text h2{font-size:clamp(26px,3.6vw,34px);font-weight:600;margin-bottom:20px;line-height:1.5;letter-spacing:-.3px;}
+  .showcase-text p{color:var(--slate);font-size:16px;line-height:2;margin-bottom:30px;font-weight:300;}
+  .check-list{display:flex;flex-direction:column;gap:16px;}
+  .check-list li{display:flex;align-items:center;gap:14px;font-size:15px;font-weight:300;}
+  .check-list .tick{
+    width:22px;height:22px;border-radius:1px;border:1px solid rgba(217,169,78,.3);
+    color:var(--gold-bright);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;
+  }
+
+  /* ===== STATS ===== */
+  .stats-band{
+    background:var(--ink2);
+    border:1px solid var(--line);border-radius:6px;
+    display:grid;grid-template-columns:repeat(4,1fr);
+  }
+  .stat-item{padding:50px 20px;text-align:center;border-left:1px solid var(--line);}
+  .stat-item:last-child{border-left:none;}
+  .stat-num{font-family:'Cairo';font-weight:600;font-size:36px;color:var(--gold-bright);}
+  .stat-label{color:var(--slate);font-size:13px;margin-top:10px;font-weight:300;letter-spacing:.2px;}
+
+  /* ===== CTA ===== */
+  .cta-band{
+    background:var(--ink2);
+    border:1px solid var(--line);border-radius:6px;
+    padding:80px 50px;text-align:center;position:relative;
+  }
+  .cta-band::before{
+    content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+    width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  }
+  .cta-band h2{font-size:clamp(26px,4vw,36px);font-weight:600;margin-bottom:16px;letter-spacing:-.3px;}
+  .cta-band p{color:var(--slate);font-size:16px;margin-bottom:36px;font-weight:300;}
+
+  /* ===== FOOTER / SOCIAL ===== */
+  footer{border-top:1px solid var(--line);padding-top:80px;background:var(--ink2);}
+  .footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;padding-bottom:60px;}
+  .footer-brand .logo{margin-bottom:16px;}
+  .footer-brand p{color:var(--slate);font-size:14px;max-width:300px;line-height:1.9;font-weight:300;}
+  .social-block h4{font-size:12.5px;color:var(--slate);margin-bottom:20px;font-weight:400;letter-spacing:1px;text-transform:uppercase;}
+  .social-row{display:flex;gap:14px;}
+  .social-row a{
+    width:44px;height:44px;border-radius:2px;
+    border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;
+    font-size:17px;transition:all .5s var(--ease);
+  }
+  .social-row a:hover{transform:translateY(-6px);box-shadow:0 16px 30px rgba(0,0,0,.4);border-color:transparent;}
+  .s-fb:hover{background:#1877F2;}
+  .s-ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
+  .s-wa:hover{background:#25D366;}
+  .s-tg:hover{background:#229ED9;}
+  .s-tw:hover{background:#000;}
+  .footer-bottom{
+    border-top:1px solid var(--line);padding:26px 0;
+    display:flex;justify-content:space-between;color:var(--slate);font-size:12.5px;flex-wrap:wrap;gap:10px;font-weight:300;
+  }
+
+  @media (max-width:900px){
+    .nav-links{display:none;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{height:340px;}
+    .why-grid{grid-template-columns:1fr;}
+    .showcase{grid-template-columns:1fr;}
+    .mock-stage{height:380px;margin-bottom:20px;}
+    .stats-band{grid-template-columns:repeat(2,1fr);}
+    .stat-item:nth-child(2){border-left:none;}
+    .cursor-ring{display:none;}
+    .wa-float{left:20px;bottom:20px;}
+  }
+
+  /* ===== LOADER ===== */
+  #loader{
+    position:fixed;inset:0;z-index:200;background:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    transition:opacity .8s var(--ease), visibility .8s var(--ease);
+  }
+  #loader.hide{opacity:0;visibility:hidden;}
+  #loader svg{width:70px;height:70px;}
+  #loader .mark-path{
+    fill:none;stroke:var(--gold-bright);stroke-width:0.5;
+    stroke-dasharray:60;stroke-dashoffset:60;
+    animation:draw 1.6s var(--ease) forwards .2s;
+  }
+
+  /* ===== CUSTOM CURSOR ===== */
+  .cursor-ring{
+    position:fixed;top:0;left:0;width:34px;height:34px;border-radius:50%;
+    border:1px solid var(--gold-bright);pointer-events:none;z-index:999;
+    transform:translate(-50%,-50%);transition:width .3s var(--ease),height .3s var(--ease),opacity .3s var(--ease);
+    opacity:0;
+  }
+  .cursor-ring.active{opacity:1;}
+  .cursor-ring.grow{width:56px;height:56px;background:rgba(240,205,130,.06);}
+
+  /* ===== ORNAMENT CORNERS ===== */
+  .ornate{position:relative;}
+  .ornate::before,.ornate::after{
+    content:'';position:absolute;width:26px;height:26px;
+    border-top:1px solid rgba(217,169,78,.55);border-right:1px solid rgba(217,169,78,.55);
+    top:-1px;left:-1px;transform:rotate(-90deg);
+    pointer-events:none;
+  }
+  .ornate::after{top:auto;bottom:-1px;left:auto;right:-1px;transform:rotate(90deg);}
+
+  /* ===== DIVIDER ===== */
+  .gold-divider{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    color:var(--gold-bright);font-size:11px;letter-spacing:3px;
+  }
+  .gold-divider .ln{
+    height:1px;width:0;background:linear-gradient(90deg,transparent,var(--gold),transparent);
+    animation:lineGrow 1.6s var(--ease) forwards;
+  }
+  .gold-divider .ln.reveal-in{width:120px;}
+  @keyframes lineGrow{to{width:120px;}}
+
+  /* ===== ACCOUNTING SECTION ===== */
+  .acct-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center;}
+  .acct-panel{
+    background:var(--ink2);border:1px solid var(--line);border-radius:6px;
+    padding:40px;position:relative;
+  }
+  .acct-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-size:14px;}
+  .acct-row:last-child{border-bottom:none;}
+  .acct-row span:first-child{color:var(--slate);font-weight:300;}
+  .acct-row span:last-child{font-family:'Cairo';font-weight:600;color:var(--cream);}
+  .acct-row .up{color:var(--teal);font-size:12px;margin-right:6px;}
+  .acct-total{
+    margin-top:18px;padding-top:20px;border-top:1px solid rgba(217,169,78,.25);
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .acct-total span:first-child{color:var(--gold-bright);font-size:13px;letter-spacing:.3px;}
+  .acct-total span:last-child{font-family:'Cairo';font-weight:700;font-size:24px;color:var(--gold-bright);}
+  .acct-feature-grid{display:flex;flex-direction:column;gap:22px;margin-top:30px;}
+  .acct-feature{display:flex;gap:16px;align-items:flex-start;}
+  .acct-feature .num{
+    font-family:'Cairo';color:var(--gold-bright);font-weight:600;font-size:13px;
+    border:1px solid rgba(217,169,78,.3);width:30px;height:30px;border-radius:2px;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .acct-feature h4{font-size:15.5px;font-weight:600;margin-bottom:5px;}
+  .acct-feature p{color:var(--slate);font-size:14px;line-height:1.85;font-weight:300;}
+
+  /* ===== TESTIMONIALS ===== */
+  .testi-wrap{max-width:760px;margin:0 auto;text-align:center;}
+  .testi-quote{
+    font-family:'Cairo';font-weight:500;font-size:clamp(20px,2.6vw,27px);
+    line-height:1.75;color:var(--cream);margin-bottom:34px;
+  }
+  .testi-mark{font-size:44px;color:var(--gold);opacity:.5;font-family:'Cairo';line-height:1;margin-bottom:10px;}
+  .testi-person{display:flex;align-items:center;justify-content:center;gap:14px;}
+  .testi-avatar{
+    width:44px;height:44px;border-radius:50%;
+    background:linear-gradient(135deg,var(--gold-bright),var(--gold));
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Cairo';font-weight:700;color:var(--ink);font-size:15px;
+  }
+  .testi-name{font-size:14.5px;font-weight:600;}
+  .testi-role{font-size:12.5px;color:var(--slate);font-weight:300;}
+
+  /* ===== WHATSAPP FLOATING BUTTON ===== */
+  .wa-float{
+    position:fixed;bottom:28px;right:28px;z-index:80;
+    width:58px;height:58px;border-radius:50%;
+    background:#25D366;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 30px rgba(37,211,102,.35);
+    transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+    animation:waPulse 2.6s ease-in-out infinite;
+  }
+  .wa-float:hover{transform:scale(1.08);box-shadow:0 16px 40px rgba(37,211,102,.5);}
+  .wa-float svg{width:28px;height:28px;}
+  @keyframes waPulse{
+    0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.4),0 12px 30px rgba(37,211,102,.35);}
+    50%{box-shadow:0 0 0 12px rgba(37,211,102,0),0 12px 30px rgba(37,211,102,.35);}
+  }
+
+  @media (max-width:900px){
+    .acct-wrap{grid-template-columns:1fr;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important;}
+  }
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <svg viewBox="0 0 24 24">
+    <path class="mark-path" d="M12 2 L14.5 9.5 L22 12 L14.5 14.5 L12 22 L9.5 14.5 L2 12 L9.5 9.5 Z" />
+  </svg>
+</div>
+
+<div class="cursor-ring" id="cursorRing"></div>
+
+<a href="https://wa.me/message/TWETUXQYKLV5E1" target="_blank" rel="noopener" class="wa-float" aria-label="تواصل عبر واتساب">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4C7.6 4 4 7.6 4 12.05c0 1.42.37 2.8 1.08 4.02L4 20l4.06-1.06a8.03 8.03 0 0 0 3.99 1.02h.01c4.44 0 8.05-3.6 8.05-8.05a8 8 0 0 0-2.5-5.6zm-5.55 12.4h-.01a6.7 6.7 0 0 1-3.41-.93l-.24-.15-2.53.66.68-2.47-.16-.25a6.68 6.68 0 0 1-1.02-3.53c0-3.7 3.01-6.71 6.72-6.71a6.68 6.68 0 0 1 4.75 1.97 6.68 6.68 0 0 1 1.96 4.74c0 3.71-3.02 6.72-6.74 6.72zm3.68-5.03c-.2-.1-1.18-.58-1.36-.65-.18-.07-.32-.1-.45.1-.13.2-.51.65-.63.78-.11.13-.23.15-.43.05-.2-.1-.85-.31-1.62-1-.6-.53-1-1.19-1.12-1.39-.11-.2-.01-.31.09-.4.09-.1.2-.24.3-.36.1-.12.13-.2.2-.34.06-.13.03-.25-.02-.36-.05-.1-.45-1.08-.61-1.48-.16-.39-.33-.33-.45-.34-.12-.01-.25-.01-.38-.01-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66 0 .98.72 1.92.82 2.05.1.13 1.4 2.14 3.4 3 .48.2.85.33 1.14.42.48.15.91.13 1.26.08.38-.06 1.18-.48 1.35-.94.17-.46.17-.86.12-.94-.05-.09-.18-.14-.38-.24z"/></svg>
+</a>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="logo">
+        <span class="logo-mark">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#080D14" stroke-width="1.3">
+            <path d="M12 2 L14.5 9.5 L22 12 L14.5 14.5 L12 22 L9.5 14.5 L2 12 L9.5 9.5 Z"/>
+          </svg>
+        </span> Syria Tech
+      </div>
+      <div class="nav-links">
+        <a href="#hero">الرئيسية</a>
+        <a href="#why">لماذا الرقمنة</a>
+        <a href="#services">خدماتنا</a>
+        <a href="#accounting">حلول المحاسبة</a>
+        <a href="#contact">تواصل معنا</a>
+      </div>
+      <a href="https://wa.me/message/TWETUXQYKLV5E1" target="_blank" rel="noopener" class="nav-cta">احجز استشارة</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">حضورك الرقمي يبدأ من هنا</div>
+      <h1>نبني لمشروعك <span>تطبيقات ومواقع</span> تجلب لك عملاء حقيقيين</h1>
+      <p class="lead">
+        كل يوم يبقى فيه نشاطك التجاري بلا موقع أو تطبيق احترافي، هو يوم تخسر فيه عملاء لصالح منافس أسرع منك في الوصول إليهم. نحوّل فكرتك إلى منصة رقمية تعمل لصالحك على مدار الساعة.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">ابدأ مشروعك الآن</a>
+        <a href="#services" class="btn-ghost">شاهد خدماتنا</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="chart-card ornate">
+        <div class="label">نمو متوقع خلال 6 أشهر من الإطلاق</div>
+        <div class="big">+ 187% <small>عملاء جدد</small></div>
+        <svg id="growthPath" viewBox="0 0 400 220" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#0D9C82"/>
+              <stop offset="100%" stop-color="#F0CD82"/>
+            </linearGradient>
+            <linearGradient id="fillGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0D9C82" stop-opacity="0.28"/>
+              <stop offset="100%" stop-color="#0D9C82" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path class="path-fill" fill="url(#fillGrad)" d="M0,190 C60,180 90,150 140,140 C190,130 210,90 260,75 C300,62 330,40 400,15 L400,220 L0,220 Z"/>
+          <path class="path-line" d="M0,190 C60,180 90,150 140,140 C190,130 210,90 260,75 C300,62 330,40 400,15"/>
+        </svg>
+        <div class="dot" style="left:34%;top:60%;"></div>
+        <div class="dot" style="left:66%;top:32%;animation-delay:.6s;"></div>
+        <div class="float-tag" style="top:14px;left:14px;">📈 مبيعات أعلى</div>
+        <div class="float-tag" style="bottom:60px;left:24px;animation-delay:1s;">👥 عملاء جدد يوميًا</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">لماذا تحتاج عملك للرقمنة</div>
+      <h2>التواجد الرقمي لم يعد رفاهية، بل خط حياة لنمو مشروعك</h2>
+      <p>عملاؤك يبحثون عنك الآن على الإنترنت قبل أن يطرقوا بابك. إن لم يجدوك، سيجدون غيرك.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">👥</div>
+        <h3>زيادة عدد العملاء</h3>
+        <p>موقع أو تطبيق احترافي يفتح لك أبوابًا جديدة للوصول إلى عملاء لم يكونوا يعرفون بوجود مشروعك من قبل، داخل سوريا وخارجها.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:.1s">
+        <div class="why-icon">💰</div>
+        <h3>نمو في الأرباح</h3>
+        <p>كل عميل إضافي يصله مشروعك رقميًا يعني طلبات أكثر، ومبيعات أعلى، ودخلًا أكثر استقرارًا لنشاطك التجاري.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:.2s">
+        <div class="why-icon">🚀</div>
+        <h3>تقدّم على المنافسين</h3>
+        <p>بينما لا يزال منافسوك يعتمدون على الطرق التقليدية فقط، يمنحك حضورك الرقمي ميزة واضحة وثقة أكبر لدى السوق.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap showcase">
+    <div class="mock-stage reveal">
+      <div class="laptop">
+        <div class="bar"><span></span><span></span><span></span></div>
+        <div class="screen">
+          <div class="skel w40"></div>
+          <div class="skel w90"></div>
+          <div class="skel w60"></div>
+        </div>
+      </div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="pscreen">
+          <div class="skel w60"></div>
+          <div class="skel w90"></div>
+          <div class="skel w40"></div>
+          <div class="pill">طلب جديد ✓</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="showcase-text reveal">
+      <div class="eyebrow">خدماتنا</div>
+      <h2>مواقع وتطبيقات مصممة لتعمل بصالح نشاطك التجاري</h2>
+      <p>
+        نصمم وننفذ موقعك أو تطبيقك بأسلوب احترافي يعكس هوية مشروعك، ويسهّل على عملائك التواصل معك والشراء منك، مع لوحة تحكم بسيطة تتيح لك إدارة كل شيء بنفسك.
+      </p>
+      <ul class="check-list">
+        <li><span class="tick">✓</span> مواقع تعريفية ومتاجر إلكترونية</li>
+        <li><span class="tick">✓</span> تطبيقات أندرويد و iOS لمشروعك</li>
+        <li><span class="tick">✓</span> ربط مباشر مع وسائل التواصل الاجتماعي</li>
+        <li><span class="tick">✓</span> تصميم متجاوب يعمل على كل الأجهزة</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="gold-divider reveal"><span class="ln"></span> ✦ <span class="ln"></span></div></div>
+
+<section id="accounting">
+  <div class="wrap acct-wrap">
+    <div class="acct-panel ornate reveal">
+      <div class="acct-row"><span>المبيعات اليومية</span><span>2,450,000 <span style="color:var(--slate);font-size:11px;">ل.س</span></span></div>
+      <div class="acct-row"><span>المصاريف التشغيلية</span><span>640,000 <span style="color:var(--slate);font-size:11px;">ل.س</span></span></div>
+      <div class="acct-row"><span>فواتير معلّقة</span><span>12 <span class="up">▲</span></span></div>
+      <div class="acct-row"><span>المخزون المتوفر</span><span>318 صنف</span></div>
+      <div class="acct-total">
+        <span>صافي الربح هذا الشهر</span>
+        <span>+ 1,810,000</span>
+      </div>
+    </div>
+
+    <div class="showcase-text reveal">
+      <div class="eyebrow">حلول محاسبية رقمية</div>
+      <h2>تطبيقات محاسبة مخصصة للشركات والمحلات الصغيرة والمتوسطة</h2>
+      <p>
+        نبني لك نظام محاسبة رقمي بسيط وسهل الاستخدام، يناسب طبيعة عملك سواء كنت تدير محلًا تجاريًا أو شركة متوسطة، ليوفر عليك ساعات من الحسابات اليدوية ويمنحك صورة واضحة عن أرباحك ومصاريفك لحظة بلحظة.
+      </p>
+      <div class="acct-feature-grid">
+        <div class="acct-feature">
+          <div class="num">01</div>
+          <div><h4>تسجيل المبيعات والمشتريات</h4><p>تسجيل كل عملية بيع أو شراء بضغطة واحدة، مع ربط تلقائي بالمخزون والفواتير.</p></div>
+        </div>
+        <div class="acct-feature">
+          <div class="num">02</div>
+          <div><h4>تقارير أرباح وخسائر فورية</h4><p>تعرف صافي ربحك اليومي والشهري دون الحاجة لمحاسب يجلس معك كل مرة.</p></div>
+        </div>
+        <div class="acct-feature">
+          <div class="num">03</div>
+          <div><h4>إدارة المخزون والفواتير</h4><p>تنبيهات تلقائية عند نقص المخزون، وإصدار فواتير احترافية لعملائك مباشرة من التطبيق.</p></div>
+        </div>
+        <div class="acct-feature">
+          <div class="num">04</div>
+          <div><h4>عمل متعدد الفروع والمستخدمين</h4><p>مناسب لأصحاب أكثر من فرع أو موظف، مع صلاحيات دخول مختلفة لكل مستخدم.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="gold-divider reveal"><span class="ln"></span> ✦ <span class="ln"></span></div></div>
+
+<section>
+  <div class="wrap testi-wrap reveal">
+    <div class="testi-mark">"</div>
+    <p class="testi-quote">منذ أن طوّرت Syria Tech تطبيق المحاسبة الخاص بمحلي، توقفت عن استخدام الدفاتر الورقية نهائيًا. أصبحت أعرف أرباحي اليومية بدقة، وزاد عدد زبائني بعد إطلاق الموقع بشكل لم أتوقعه.</p>
+    <div class="testi-person">
+      <div class="testi-avatar">ع.ح</div>
+      <div style="text-align:right">
+        <div class="testi-name">عمر الحسن</div>
+        <div class="testi-role">صاحب محل، دمشق</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="stats-band reveal">
+      <div class="stat-item"><div class="stat-num" data-target="120">0</div><div class="stat-label">مشروع تم تطويره</div></div>
+      <div class="stat-item"><div class="stat-num" data-target="87">0</div><div class="stat-label">% رضا العملاء</div></div>
+      <div class="stat-item"><div class="stat-num" data-target="60">0</div><div class="stat-label">% نمو متوسط بالمبيعات</div></div>
+      <div class="stat-item"><div class="stat-num" data-target="24">0</div><div class="stat-label">دعم فني متواصل (ساعة)</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2>جاهز تنقل مشروعك إلى المستوى التالي؟</h2>
+      <p>تواصل معنا اليوم واحصل على استشارة مجانية حول الموقع أو التطبيق الأنسب لنشاطك التجاري.</p>
+      <a href="https://wa.me/message/TWETUXQYKLV5E1" target="_blank" rel="noopener" class="btn-primary">احجز استشارتك المجانية</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#080D14" stroke-width="1.3">
+              <path d="M12 2 L14.5 9.5 L22 12 L14.5 14.5 L12 22 L9.5 14.5 L2 12 L9.5 9.5 Z"/>
+            </svg>
+          </span> Syria Tech
+        </div>
+        <p>نساعد أصحاب الأعمال في سوريا على بناء حضور رقمي قوي يزيد عملاءهم وأرباحهم.</p>
+      </div>
+      <div class="social-block">
+        <h4>تابعنا على وسائل التواصل</h4>
+        <div class="social-row">
+          <a href="#" class="s-fb" aria-label="فيسبوك">📘</a>
+          <a href="#" class="s-ig" aria-label="انستغرام">📷</a>
+          <a href="https://wa.me/message/TWETUXQYKLV5E1" target="_blank" rel="noopener" class="s-wa" aria-label="واتساب">💬</a>
+          <a href="#" class="s-tg" aria-label="تيليجرام">✈️</a>
+          <a href="#" class="s-tw" aria-label="إكس">𝕏</a>
+        </div>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 Syria Tech. جميع الحقوق محفوظة.</span>
+      <span>صُنع بشغف لدعم رواد الأعمال السوريين</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // loader (with safety fallback so it never gets stuck)
+  function hideLoader(){
+    const l = document.getElementById('loader');
+    if(l) l.classList.add('hide');
+  }
+  if(document.readyState === 'complete'){
+    setTimeout(hideLoader, 600);
+  } else {
+    window.addEventListener('load', ()=> setTimeout(hideLoader, 600));
+  }
+  setTimeout(hideLoader, 2200); // hard fallback no matter what
+
+  // scroll reveal (also triggers gold-divider lines)
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        e.target.querySelectorAll('.ln').forEach(ln=>ln.classList.add('reveal-in'));
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.15});
+  revealEls.forEach(el=>io.observe(el));
+
+  // counters
+  const counters = document.querySelectorAll('.stat-num');
+  const cio = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const el = e.target;
+        const target = +el.dataset.target;
+        let cur = 0;
+        const step = Math.max(1, Math.ceil(target/60));
+        const t = setInterval(()=>{
+          cur += step;
+          if(cur >= target){ cur = target; clearInterval(t); }
+          el.textContent = cur;
+        },25);
+        cio.unobserve(el);
+      }
+    });
+  },{threshold:.5});
+  counters.forEach(el=>cio.observe(el));
+
+  // custom cursor ring (desktop only)
+  const isFinePointer = window.matchMedia('(pointer:fine)').matches;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(isFinePointer && !reduceMotion){
+    const ring = document.getElementById('cursorRing');
+    let rx=0, ry=0, mx=0, my=0;
+    window.addEventListener('mousemove', (e)=>{
+      mx = e.clientX; my = e.clientY;
+      ring.classList.add('active');
+    });
+    (function loop(){
+      rx += (mx-rx)*0.18; ry += (my-ry)*0.18;
+      ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll('a,button').forEach(el=>{
+      el.addEventListener('mouseenter', ()=>ring.classList.add('grow'));
+      el.addEventListener('mouseleave', ()=>ring.classList.remove('grow'));
+    });
+
+    // magnetic buttons
+    document.querySelectorAll('.btn-primary, .btn-ghost, .nav-cta').forEach(btn=>{
+      btn.addEventListener('mousemove', (e)=>{
+        const r = btn.getBoundingClientRect();
+        const relX = e.clientX - r.left - r.width/2;
+        const relY = e.clientY - r.top - r.height/2;
+        btn.style.transform = `translate(${relX*0.18}px, ${relY*0.35}px)`;
+      });
+      btn.addEventListener('mouseleave', ()=>{ btn.style.transform = 'translate(0,0)'; });
+    });
+
+    // subtle parallax on hero visual
+    const heroVisual = document.querySelector('.hero-visual');
+    if(heroVisual){
+      window.addEventListener('mousemove', (e)=>{
+        const px = (e.clientX / window.innerWidth - 0.5) * 14;
+        const py = (e.clientY / window.innerHeight - 0.5) * 14;
+        heroVisual.style.transform = `translate(${px}px, ${py}px)`;
+      });
+    }
+  }
+
+  // scroll parallax on hero background glow
+  const hero = document.querySelector('.hero');
+  if(hero && !reduceMotion){
+    window.addEventListener('scroll', ()=>{
+      const y = window.scrollY;
+      hero.style.backgroundPosition = `center ${y*0.15}px, center ${y*0.1}px`;
+    });
+  }
+</script>
+
+</body>
+</html>
