@@ -18,7 +18,10 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23F0CD82'/%3E%3Cstop offset='100%25' stop-color='%23D9A94E'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='24' height='24' rx='6' fill='%230A1220'/%3E%3Cpath d='M12 3 L14 9.5 L21 12 L14 14.5 L12 21 L10 14.5 L3 12 L10 9.5 Z' fill='url(%23g)'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@300;400;500;700&family=Markazi+Text:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700&family=Tajawal:wght@400;500;700&family=Markazi+Text:wght@400;600&display=optional">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700&family=Tajawal:wght@400;500;700&family=Markazi+Text:wght@400;600&display=optional" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700&family=Tajawal:wght@400;500;700&family=Markazi+Text:wght@400;600&display=optional"></noscript>
 <style>
   :root{
     --ink:#060A14;
@@ -119,6 +122,7 @@
     position:relative;
     overflow:hidden;
     padding-top:150px;padding-bottom:70px;
+    min-height:680px;
     background:linear-gradient(180deg, var(--navy-deep) 0%, var(--ink) 62%);
   }
   .hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;}
@@ -338,7 +342,7 @@
   .footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;padding-bottom:60px;}
   .footer-brand .logo{margin-bottom:16px;}
   .footer-brand p{color:var(--slate);font-size:14px;max-width:300px;line-height:1.9;font-weight:400;}
-  .social-block h4{font-size:12.5px;color:var(--slate);margin-bottom:20px;font-weight:500;letter-spacing:1px;}
+  .social-block h3{font-size:12.5px;color:var(--slate);margin-bottom:20px;font-weight:500;letter-spacing:1px;}
   .social-row{display:flex;gap:14px;}
   .social-row a{
     width:44px;height:44px;border-radius:2px;
@@ -443,7 +447,7 @@
   .about-values{display:flex;flex-direction:column;gap:22px;margin-top:30px;}
   .about-value{display:flex;gap:16px;align-items:flex-start;}
   .about-value .why-icon{margin-bottom:0;flex-shrink:0;}
-  .about-value h4{font-size:15.5px;font-weight:600;margin-bottom:5px;}
+  .about-value h3{font-size:15.5px;font-weight:600;margin-bottom:5px;}
   .about-value p{color:var(--slate);font-size:14px;line-height:1.85;font-weight:400;}
 
   /* ===== WHATSAPP FLOATING BUTTON ===== */
@@ -506,6 +510,7 @@
   </div>
 </header>
 
+<main>
 <section class="hero" id="hero">
   <div class="hero-bg">
     <div class="grid-lines"></div>
@@ -580,19 +585,19 @@
           <div class="why-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="#F0CD82" stroke-width="1.6"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6.3-5.5-3-5.5 3 1-6.3L3 8.9 9 8z"/></svg>
           </div>
-          <div><h4>جودة احترافية</h4><p>كل مشروع نصممه يخضع لمعايير دقيقة في الأداء والتصميم قبل تسليمه لك.</p></div>
+          <div><h3>جودة احترافية</h3><p>كل مشروع نصممه يخضع لمعايير دقيقة في الأداء والتصميم قبل تسليمه لك.</p></div>
         </div>
         <div class="about-value">
           <div class="why-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="#F0CD82" stroke-width="1.6"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg>
           </div>
-          <div><h4>موثوقية والتزام</h4><p>نلتزم بالمواعيد والتفاصيل المتفق عليها معك من أول استشارة حتى التسليم.</p></div>
+          <div><h3>موثوقية والتزام</h3><p>نلتزم بالمواعيد والتفاصيل المتفق عليها معك من أول استشارة حتى التسليم.</p></div>
         </div>
         <div class="about-value">
           <div class="why-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="#F0CD82" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
           </div>
-          <div><h4>دعم مستمر بعد الإطلاق</h4><p>علاقتنا لا تنتهي بتسليم المشروع، بل نستمر بدعمك وتطوير حضورك الرقمي.</p></div>
+          <div><h3>دعم مستمر بعد الإطلاق</h3><p>علاقتنا لا تنتهي بتسليم المشروع، بل نستمر بدعمك وتطوير حضورك الرقمي.</p></div>
         </div>
       </div>
     </div>
@@ -697,19 +702,19 @@
       <div class="acct-feature-grid" style="display:flex;flex-direction:column;gap:22px;margin-top:30px;">
         <div class="acct-feature">
           <div class="num" style="font-family:'Cairo';color:var(--gold-bright);font-weight:600;font-size:13px;border:1px solid rgba(217,169,78,.3);width:30px;height:30px;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">01</div>
-          <div><h4 style="font-size:15.5px;font-weight:600;margin-bottom:5px;">تسجيل المبيعات والمشتريات</h4><p style="color:var(--slate);font-size:14px;line-height:1.85;font-weight:400;">تسجيل كل عملية بيع أو شراء بضغطة واحدة، مع ربط تلقائي بالمخزون والفواتير.</p></div>
+          <div><h3 style="font-size:15.5px;font-weight:600;margin-bottom:5px;">تسجيل المبيعات والمشتريات</h3><p style="color:var(--slate);font-size:14px;line-height:1.85;font-weight:400;">تسجيل كل عملية بيع أو شراء بضغطة واحدة، مع ربط تلقائي بالمخزون والفواتير.</p></div>
         </div>
         <div class="acct-feature">
           <div class="num" style="font-family:'Cairo';color:var(--gold-bright);font-weight:600;font-size:13px;border:1px solid rgba(217,169,78,.3);width:30px;height:30px;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">02</div>
-          <div><h4 style="font-size:15.5px;font-weight:600;margin-bottom:5px;">تقارير أرباح وخسائر فورية</h4><p style="color:var(--slate);font-size:14px;line-height:1.85;font-weight:400;">تعرف صافي ربحك اليومي والشهري دون الحاجة لمحاسب يجلس معك كل مرة.</p></div>
+          <div><h3 style="font-size:15.5px;font-weight:600;margin-bottom:5px;">تقارير أرباح وخسائر فورية</h3><p style="color:var(--slate);font-size:14px;line-height:1.85;font-weight:400;">تعرف صافي ربحك اليومي والشهري دون الحاجة لمحاسب يجلس معك كل مرة.</p></div>
         </div>
         <div class="acct-feature">
           <div class="num" style="font-family:'Cairo';color:var(--gold-bright);font-weight:600;font-size:13px;border:1px solid rgba(217,169,78,.3);width:30px;height:30px;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">03</div>
-          <div><h4 style="font-size:15.5px;font-weight:600;margin-bottom:5px;">إدارة المخزون والفواتير</h4><p style="color:var(--slate);font-size:14px;line-height:1.85;font-weight:400;">تنبيهات تلقائية عند نقص المخزون، وإصدار فواتير احترافية لعملائك مباشرة من التطبيق.</p></div>
+          <div><h3 style="font-size:15.5px;font-weight:600;margin-bottom:5px;">إدارة المخزون والفواتير</h3><p style="color:var(--slate);font-size:14px;line-height:1.85;font-weight:400;">تنبيهات تلقائية عند نقص المخزون، وإصدار فواتير احترافية لعملائك مباشرة من التطبيق.</p></div>
         </div>
         <div class="acct-feature">
           <div class="num" style="font-family:'Cairo';color:var(--gold-bright);font-weight:600;font-size:13px;border:1px solid rgba(217,169,78,.3);width:30px;height:30px;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">04</div>
-          <div><h4 style="font-size:15.5px;font-weight:600;margin-bottom:5px;">عمل متعدد الفروع والمستخدمين</h4><p style="color:var(--slate);font-size:14px;line-height:1.85;font-weight:400;">مناسب لأصحاب أكثر من فرع أو موظف، مع صلاحيات دخول مختلفة لكل مستخدم.</p></div>
+          <div><h3 style="font-size:15.5px;font-weight:600;margin-bottom:5px;">عمل متعدد الفروع والمستخدمين</h3><p style="color:var(--slate);font-size:14px;line-height:1.85;font-weight:400;">مناسب لأصحاب أكثر من فرع أو موظف، مع صلاحيات دخول مختلفة لكل مستخدم.</p></div>
         </div>
       </div>
     </div>
@@ -739,6 +744,8 @@
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="wrap">
     <div class="footer-top">
@@ -753,7 +760,7 @@
         <p>نساعد أصحاب الأعمال في سوريا على بناء حضور رقمي قوي يزيد عملاءهم وأرباحهم.</p>
       </div>
       <div class="social-block">
-        <h4>تابعنا على وسائل التواصل</h4>
+        <h3>تابعنا على وسائل التواصل</h3>
         <div class="social-row">
           <a href="https://wa.me/message/TWETUXQYKLV5E1" target="_blank" rel="noopener" class="s-wa" aria-label="واتساب">💬</a>
         </div>
