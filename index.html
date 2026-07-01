@@ -45,34 +45,8 @@
     font-display:optional;
     src:url('https://cdn.jsdelivr.net/gh/sairbirro/ssssss@main/fonts/tajawal-v12-arabic-regular.woff2') format('woff2');
   }
-  @font-face{
-    font-family:'Tajawal';
-    font-style:normal;
-    font-weight:500;
-    font-display:swap;
-    src:url('https://cdn.jsdelivr.net/gh/sairbirro/ssssss@main/fonts/tajawal-v12-arabic-500.woff2') format('woff2');
-  }
-  @font-face{
-    font-family:'Tajawal';
-    font-style:normal;
-    font-weight:700;
-    font-display:swap;
-    src:url('https://cdn.jsdelivr.net/gh/sairbirro/ssssss@main/fonts/tajawal-v12-arabic-700.woff2') format('woff2');
-  }
-  @font-face{
-    font-family:'Markazi Text';
-    font-style:normal;
-    font-weight:400;
-    font-display:swap;
-    src:url('https://cdn.jsdelivr.net/gh/sairbirro/ssssss@main/fonts/markazi-text-v28-arabic-regular.woff2') format('woff2');
-  }
-  @font-face{
-    font-family:'Markazi Text';
-    font-style:normal;
-    font-weight:600;
-    font-display:swap;
-    src:url('https://cdn.jsdelivr.net/gh/sairbirro/ssssss@main/fonts/markazi-text-v28-arabic-600.woff2') format('woff2');
-  }
+  /* الخطوط أدناه (Tajawal 500/700 وMarkazi Text) تُستخدم فقط في أقسام أسفل الصفحة،
+     تم تأجيل تحميلها عبر JS بعد اكتمال الصفحة لتخفيف السلسلة الحرجة للتحميل (انظر نهاية body) */
 
   :root{
     --ink:#060A14;
@@ -882,15 +856,17 @@
       el.addEventListener('mouseleave', ()=>ring.classList.remove('grow'));
     });
 
-    // magnetic buttons
+    // magnetic buttons (rect cached on mouseenter to avoid forced reflow on every mousemove)
     document.querySelectorAll('.btn-primary, .btn-ghost, .nav-cta').forEach(btn=>{
+      let r = null;
+      btn.addEventListener('mouseenter', ()=>{ r = btn.getBoundingClientRect(); });
       btn.addEventListener('mousemove', (e)=>{
-        const r = btn.getBoundingClientRect();
+        if(!r) r = btn.getBoundingClientRect();
         const relX = e.clientX - r.left - r.width/2;
         const relY = e.clientY - r.top - r.height/2;
         btn.style.transform = `translate(${relX*0.18}px, ${relY*0.35}px)`;
       });
-      btn.addEventListener('mouseleave', ()=>{ btn.style.transform = 'translate(0,0)'; });
+      btn.addEventListener('mouseleave', ()=>{ btn.style.transform = 'translate(0,0)'; r = null; });
     });
 
     // subtle parallax on hero visual
@@ -904,6 +880,31 @@
     }
   }
 
+</script>
+
+<script>
+  // تحميل الخطوط غير الحرجة (تظهر فقط أسفل الصفحة) بعد اكتمال التحميل الأساسي
+  // لتخفيف السلسلة الحرجة للتحميل وتحسين LCP
+  function loadDeferredFonts(){
+    const css = `
+      @font-face{font-family:'Tajawal';font-style:normal;font-weight:500;font-display:swap;
+        src:url('https://cdn.jsdelivr.net/gh/sairbirro/ssssss@main/fonts/tajawal-v12-arabic-500.woff2') format('woff2');}
+      @font-face{font-family:'Tajawal';font-style:normal;font-weight:700;font-display:swap;
+        src:url('https://cdn.jsdelivr.net/gh/sairbirro/ssssss@main/fonts/tajawal-v12-arabic-700.woff2') format('woff2');}
+      @font-face{font-family:'Markazi Text';font-style:normal;font-weight:400;font-display:swap;
+        src:url('https://cdn.jsdelivr.net/gh/sairbirro/ssssss@main/fonts/markazi-text-v28-arabic-regular.woff2') format('woff2');}
+      @font-face{font-family:'Markazi Text';font-style:normal;font-weight:600;font-display:swap;
+        src:url('https://cdn.jsdelivr.net/gh/sairbirro/ssssss@main/fonts/markazi-text-v28-arabic-600.woff2') format('woff2');}
+    `;
+    const style = document.createElement('style');
+    style.textContent = css;
+    document.head.appendChild(style);
+  }
+  if(document.readyState === 'complete'){
+    loadDeferredFonts();
+  } else {
+    window.addEventListener('load', loadDeferredFonts);
+  }
 </script>
 
 </body>
