@@ -230,3 +230,8 @@ footer{border-top:1px solid var(--line);padding-top:80px;background:var(--ink2);
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important;}
 }
+
+/* ===== خلفية الجزيئات المتحركة (Particles Background) ===== */
+#particles-js{
+  position:fixed;width:100%;height:100%;z-index:-1;top:0;left:0;
+}
