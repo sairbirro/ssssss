@@ -548,6 +548,87 @@
   #particles-js{
     position:fixed;width:100%;height:100%;z-index:-1;top:0;left:0;
   }
+
+  /* ===== TIBYAN GLASS CARD ===== */
+  .tibyan-card{
+    background:rgba(255,255,255,.045);
+    backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:14px;
+    padding:50px 46px;
+    text-align:center;
+    max-width:820px;margin:0 auto;
+    box-shadow:0 30px 70px -30px rgba(0,0,0,.55);
+    position:relative;
+    overflow:hidden;
+  }
+  .tibyan-card::before{
+    content:'';position:absolute;top:-40%;left:-10%;width:60%;height:180%;
+    background:radial-gradient(circle, rgba(217,169,78,.10), transparent 65%);
+    pointer-events:none;
+  }
+  .tibyan-card h2{
+    font-size:clamp(26px,3.6vw,34px);font-weight:700;letter-spacing:.2px;margin-bottom:22px;
+    color:var(--cream);position:relative;z-index:1;
+  }
+  .tibyan-card h2 .en{
+    font-family:'Cairo',sans-serif;color:var(--gold-bright);font-weight:600;font-size:.78em;letter-spacing:.5px;
+  }
+  .tibyan-card p{
+    color:var(--slate);font-size:15px;line-height:2;font-weight:400;
+    position:relative;z-index:1;text-align:right;margin-bottom:28px;
+  }
+  .tibyan-card .btn-primary{position:relative;z-index:1;display:inline-flex;}
+
+  /* ===== PRICING INTRO TEXT ===== */
+  .pricing-intro{text-align:center;margin:56px 0 40px;}
+  .pricing-intro .line1{
+    font-family:'Cairo',sans-serif;font-weight:600;font-size:clamp(22px,3vw,28px);color:var(--cream);letter-spacing:.2px;
+  }
+  .pricing-intro .line2{
+    margin-top:10px;font-family:'Cairo',sans-serif;font-weight:700;font-size:clamp(17px,2.2vw,20px);
+    color:var(--gold-bright);letter-spacing:.3px;
+  }
+
+  /* ===== PRICING CARDS ===== */
+  .pricing-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;
+  }
+  .price-card{
+    background:rgba(255,255,255,.045);
+    backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:14px;
+    padding:38px 30px;
+    display:flex;flex-direction:column;
+    transition:transform .5s var(--ease),border-color .5s var(--ease),box-shadow .5s var(--ease);
+    position:relative;
+  }
+  .price-card:hover{transform:translateY(-8px);border-color:rgba(217,169,78,.4);box-shadow:0 28px 60px -26px rgba(0,0,0,.6);}
+  .price-card.featured{border-color:rgba(217,169,78,.45);}
+  .price-card .badge{
+    position:absolute;top:-13px;right:50%;transform:translateX(50%);
+    background:linear-gradient(90deg,var(--gold-bright),var(--gold));
+    color:var(--ink);font-size:11.5px;font-weight:700;padding:6px 16px;border-radius:20px;letter-spacing:.3px;
+    white-space:nowrap;
+  }
+  .price-card .price-amount{
+    font-family:'Cairo',sans-serif;font-weight:700;font-size:40px;color:var(--gold-bright);text-align:center;margin-bottom:6px;
+  }
+  .price-card .price-amount small{font-size:14px;color:var(--slate);font-weight:400;}
+  .price-card .price-sub{text-align:center;color:var(--slate);font-size:12.5px;margin-bottom:26px;letter-spacing:.2px;}
+  .price-features{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:auto;}
+  .price-features li{
+    display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.7;color:var(--cream);font-weight:400;
+  }
+  .price-features li.off{color:var(--slate);opacity:.6;}
+  .price-features li .ico{flex-shrink:0;font-size:14px;line-height:1.7;}
+
+  @media (max-width:900px){
+    .pricing-grid{grid-template-columns:1fr;}
+    .tibyan-card{padding:36px 26px;}
+    .tibyan-card p{text-align:right;}
+  }
 </style>
 </head>
 <body>
@@ -808,6 +889,84 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="gold-divider reveal"><span class="ln"></span> ✦ <span class="ln"></span></div></div>
+
+<section id="tibyan-pricing">
+  <div class="wrap">
+
+    <div class="tibyan-card reveal">
+      <h2>تطبيق تِبيان <span class="en">Tibyan</span></h2>
+      <p>
+        تطبيق تِبيان Tibyan هو تطبيق محاسبة سحابي يتيح لأصحاب الشركات أو المحلات التجارية إدارة حساباتهم وحسابات الفروع التابعة لهم من مكان واحد، والاطلاع على سجلاتهم وحركاتهم وحساباتهم المالية بشكل لحظي مباشر، كما يتيح لهم تنزيل وطباعة هذه السجلات أو تحويلها إلى ملفات Excel.<br><br>
+        كما يتيح لهم التحكم بصلاحيات كل فرع على حدى؛ مثال: السماح لفرع محدد بعينه بإضافة الحركات التجارية اليومية مثل بيع أو شراء، لكن منعه من حذفها أو تعديلها.<br><br>
+        مع إمكانية إضافة أو حذف ميزات جديدة حسب احتياجاتك.<br><br>
+        يمكنك التواصل معنا عبر واتساب للاطلاع على مزيد من التفاصيل.
+      </p>
+      <a href="https://wa.me/message/TWETUXQYKLV5E1" target="_blank" rel="noopener" class="btn-primary">تواصل معنا عبر واتساب</a>
+    </div>
+
+    <div class="pricing-intro reveal">
+      <div class="line1">جميع الاشتراكات شهرية</div>
+      <div class="line2">الشهر الأول مجاناً</div>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <div class="price-amount">30$<small>/شهرياً</small></div>
+        <div class="price-sub">اشتراك شهري</div>
+        <ul class="price-features">
+          <li><span class="ico">✅️</span> حماية كاملة للبيانات</li>
+          <li><span class="ico">✅️</span> استخدام كامل لجميع خصائص التطبيق</li>
+          <li><span class="ico">✅️</span> حذف وإضافة وتعديل الفروع</li>
+          <li><span class="ico">✅️</span> تعطيل وتفعيل أو تعديل صلاحيات أي فرع</li>
+          <li><span class="ico">✅️</span> الاطلاع على الحركات المالية لكل فرع بأي لحظة وطباعتها أو تحميلها كملف</li>
+          <li><span class="ico">✅️</span> عدد الفروع 3</li>
+          <li class="off"><span class="ico">🚫</span> زيادة عدد الفروع</li>
+          <li class="off"><span class="ico">🚫</span> مستخدمون متعددون لإدارة الفرع</li>
+          <li class="off"><span class="ico">🚫</span> المساعدة وحل المشاكل على مدار الساعة</li>
+          <li class="off"><span class="ico">🚫</span> طلب تعديلات أو إضافات</li>
+        </ul>
+      </div>
+
+      <div class="price-card featured reveal">
+        <span class="badge">الأكثر طلباً</span>
+        <div class="price-amount">50$<small>/شهرياً</small></div>
+        <div class="price-sub">اشتراك شهري</div>
+        <ul class="price-features">
+          <li><span class="ico">✅️</span> حماية كاملة للبيانات</li>
+          <li><span class="ico">✅️</span> استخدام كامل لجميع خصائص التطبيق</li>
+          <li><span class="ico">✅️</span> حذف وإضافة وتعديل الفروع</li>
+          <li><span class="ico">✅️</span> تعطيل وتفعيل أو تعديل صلاحيات أي فرع</li>
+          <li><span class="ico">✅️</span> الاطلاع على الحركات المالية لكل فرع بأي لحظة وطباعتها أو تحميلها كملف</li>
+          <li><span class="ico">✅️</span> عدد الفروع 5</li>
+          <li><span class="ico">✅️</span> المساعدة وحل المشاكل على مدار الساعة</li>
+          <li><span class="ico">✅️</span> زيادة عدد الفروع</li>
+          <li class="off"><span class="ico">🚫</span> مستخدمون متعددون لإدارة الفرع</li>
+          <li class="off"><span class="ico">🚫</span> طلب تعديلات أو إضافات</li>
+        </ul>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="price-amount">100$<small>/شهرياً</small></div>
+        <div class="price-sub">اشتراك شهري</div>
+        <ul class="price-features">
+          <li><span class="ico">✅️</span> حماية كاملة للبيانات</li>
+          <li><span class="ico">✅️</span> استخدام كامل لجميع خصائص التطبيق</li>
+          <li><span class="ico">✅️</span> حذف وإضافة وتعديل الفروع</li>
+          <li><span class="ico">✅️</span> تعطيل وتفعيل أو تعديل صلاحيات أي فرع</li>
+          <li><span class="ico">✅️</span> الاطلاع على الحركات المالية لكل فرع بأي لحظة وطباعتها أو تحميلها كملف</li>
+          <li><span class="ico">✅️</span> عدد الفروع (غير محدود)</li>
+          <li><span class="ico">✅️</span> المساعدة وحل المشاكل على مدار الساعة</li>
+          <li><span class="ico">✅️</span> زيادة عدد الفروع</li>
+          <li><span class="ico">✅️</span> مستخدمون متعددون لإدارة الفرع</li>
+          <li><span class="ico">✅️</span> طلب تعديلات أو إضافات</li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </section>
 
